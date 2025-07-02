@@ -1,7 +1,18 @@
 import { FaStar } from "react-icons/fa";
+import { useCart } from "../context/CartContext";
+import { useRef } from "react";
 
-const DishCard = ({ dish, onAddToCart }) => {
+const DishCard = ({ dish }) => {
+  const { addToCart } = useCart();
   const { title, image, price, rating } = dish;
+
+  // ✅ Generate a random ID once per component mount
+  const idRef = useRef(dish.id || Math.floor(Math.random() * 1000000));
+
+  const handleAddToCart = () => {
+    const dishWithId = { ...dish, id: idRef.current };
+    addToCart(dishWithId);
+  };
 
   return (
     <div className="bg-white w-[400px] shadow-md rounded-lg p-4 text-center hover:scale-105 transition">
@@ -12,6 +23,7 @@ const DishCard = ({ dish, onAddToCart }) => {
       />
 
       <h3 className="text-lg font-semibold mb-1">{title}</h3>
+
       <div className="flex justify-center items-center mb-2">
         {[...Array(5)].map((_, i) => (
           <FaStar
@@ -21,16 +33,17 @@ const DishCard = ({ dish, onAddToCart }) => {
             }`}
           />
         ))}
-          </div>
-          <div className="flex flex-row items-center justify-center gap-2">
-      <p className="text-black font-bold">${price.toFixed(2)}</p>
-      <button
-        onClick={() => onAddToCart(dish)}
-        className="border border-orange-500 text-orange-500 font-medium px-4 py-1 rounded-full hover:bg-orange-500 hover:text-white transition"
-      >
-        Buy Now
-          </button>
-          </div>
+      </div>
+
+      <div className="flex flex-row items-center justify-center gap-2">
+        <p className="text-black font-bold">${price.toFixed(2)}</p>
+        <button
+          onClick={handleAddToCart}
+          className="border border-orange-500 text-orange-500 font-medium px-4 py-1 rounded-full hover:bg-orange-500 hover:text-white transition"
+        >
+          Buy Now
+        </button>
+      </div>
     </div>
   );
 };

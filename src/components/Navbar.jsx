@@ -1,14 +1,14 @@
-// Navbar.jsx
-import { FiChevronDown } from "react-icons/fi";
+import { FiChevronDown, FiShoppingCart } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { FiShoppingCart } from "react-icons/fi"; // Cart icon
+import { useCart } from "../context/CartContext"; // ✅ import context
 
 const Navbar = ({ setSelectedCategory }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const toggleDropdown = () => setIsDropdownOpen((prev) => !prev);
 
   const categories = ["Spicy", "Tasty", "Delicious", "Crispy"];
+  const { cartCount } = useCart(); // ✅ use cart count from context
 
   return (
     <nav className="flex items-center justify-around px-6 md:px-10 py-4 bg-white sticky top-0 shadow-md z-50">
@@ -76,13 +76,16 @@ const Navbar = ({ setSelectedCategory }) => {
         {/* Cart icon */}
         <li>
           <Link to="/cart" className="relative">
-            <FiShoppingCart className="text-xl hover:text-amber-600 transition w-5 h-5 " />
-            <span className="absolute -top-2 -right-3 bg-amber-600 text-white w-3 h-3 flex items-center justify-center p-2 rounded-full">1</span>
+            <FiShoppingCart className="text-xl hover:text-amber-600 transition w-5 h-5" />
+            {cartCount > 0 && (
+              <span className="absolute -top-2 -right-3 bg-amber-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                {cartCount}
+              </span>
+            )}
           </Link>
         </li>
 
         <li>
-          {/* Login Button */}
           <button className="text-amber-600 border-2 border-amber-600 px-5 py-1 rounded-full font-semibold hover:bg-amber-600 hover:text-white transition">
             Login
           </button>
