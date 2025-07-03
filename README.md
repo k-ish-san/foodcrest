@@ -33,7 +33,7 @@ src/
 
 ### 🛒 Cart Page
 
-![Cart with Items](https://res.cloudinary.com/dc4gefidz/image/upload/v1751523396/Screenshot_3_wq9umu.png)
+![Cart with Items](https://res.cloudinary.com/dc4gefidz/image/upload/v1751523951/Screenshot_5_ylym6u.png)
 
 - Displays a list of all selected items.
 - Features:
