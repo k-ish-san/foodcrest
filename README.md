@@ -24,7 +24,8 @@ src/
 
 ### 🌟 Home Page
 
-![Hero and Dishes](https://res.cloudinary.com/dc4gefidz/image/upload/v1751523397/Screenshot_2_izwhvo.png)
+![HeroSection and Dishes After Selecting Spicy](https://res.cloudinary.com/dc4gefidz/image/upload/v1751523397/Screenshot_2_izwhvo.png)
+![Dishes Default](https://res.cloudinary.com/dc4gefidz/image/upload/v1751524282/Screenshot_6_zgbqy5.png)
 
 - **Hero Section** with a visually striking image and CTA (`Order Now`).
 - **Dropdown Menu** under `Dishes` to filter food by category (Spicy, Tasty, Delicious, Crispy).
@@ -44,7 +45,7 @@ src/
 
 ### ❌ Empty Cart State
 
-![Empty Cart](https://res.cloudinary.com/dc4gefidz/image/upload/v1751523397/Screenshot_2_izwhvo.png)
+![Empty Cart](https://res.cloudinary.com/dc4gefidz/image/upload/v1751524348/Screenshot_7_y6oopb.png)
 
 - User-friendly empty cart message: **"Your cart is empty."**
 
